@@ -88,10 +88,13 @@ export default {
 
     },
     addTask(){
-      this.tasks.push({
-        title: this.newTask,
-        done: false
-      })
+      debugger;
+      if(this.newTask != ""){
+        this.tasks.push({
+         title: this.newTask,
+         done: false
+       })
+      }      
       this.newTask = ''
     }
   }

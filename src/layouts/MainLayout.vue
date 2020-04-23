@@ -56,7 +56,22 @@
                 Notes
               </q-item-section>
             </q-item>
-            
+
+                    
+            <q-item 
+              to="/profile"
+              exact 
+              clickable 
+              v-ripple>
+              <q-item-section avatar>
+                <q-icon name="perm_identity" />
+              </q-item-section>
+
+              <q-item-section>
+                Profile
+              </q-item-section>
+            </q-item>
+
             <q-item 
               to="/help"
               exact 
@@ -77,7 +92,8 @@
         <q-img class="absolute-top" src="statics/mountains.jpg" style="height: 192px">
           <div class="absolute-bottom bg-transparent">
             <q-avatar size="56px" class="q-mb-sm">
-              <img src="statics/lego-chewy.jpg">
+              <img :src="image">
+              <!-- <img src="statics/lego-chewy.jpg"> -->
             </q-avatar>
             <div class="text-weight-bold">Chewbacca</div>
             <div>@chewy</div>
@@ -96,7 +112,6 @@
 <script>
 import { date } from 'quasar'
 import EssentialLink from 'components/EssentialLink'
-import VueDraggable from 'vue-draggable'
 
 export default {
   name: 'MainLayout',
@@ -108,44 +123,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
-      essentialLinks: [
-        {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev'
-        },
-        {
-          title: 'Github',
-          caption: 'github.com/quasarframework',
-          icon: 'code',
-          link: 'https://github.com/quasarframework'
-        },
-        {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev'
-        },
-        {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev'
-        },
-        {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev'
-        },
-        {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev'
-        }
-      ]
+       image: ""     
     }
   },
   computed: {
@@ -153,6 +131,9 @@ export default {
       let timeStamp = Date.now();
       return date.formatDate(timeStamp, 'dddd MMMM D');
     }
+  },
+  methods: {
+
   }
 }
 </script>
